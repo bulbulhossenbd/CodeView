@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+	<script type="text/javascript" src="scripts/brush.js"></script>
+	<link type="text/css" rel="stylesheet" href="styles/shCore.css"/>
+	<link type="text/css" rel="stylesheet" href="styles/shThemeDjango.css"/>
+	<script type="text/javascript">SyntaxHighlighter.all();</script>
+
+</head>
+<body>
+<pre class="brush: java;auto-links: false;">
+
+
+package com.baoyz.codeview;
+
+import android.app.Activity;
+import android.os.Bundle;
+import android.webkit.WebSettings;
+import android.webkit.WebView;
+
+public class MainActivity extends Activity {
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_main);
+		WebView webView = (WebView) findViewById(R.id.webview);
+		webView.setHorizontalScrollbarOverlay(false);
+		webView.setHorizontalFadingEdgeEnabled(false);
+		webView.setHorizontalScrollBarEnabled(true);
+		WebSettings settings = webView.getSettings();
+		settings.setJavaScriptEnabled(true);
+		webView.loadUrl("file:///android_asset/template");
+
+	}
+
+	final class InJavaScriptLocalObj {
+		public void showSource(String html) {
+			System.out.println(html);
+		}
+	}
+}
+
+
+</pre>
+</body>
+</html>
